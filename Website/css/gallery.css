@@ -1,0 +1,287 @@
+/* ===== GLOBAL STYLES (Theme Consistency) ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --gallery-accent: #7c5fa7; /* Lavender accent */
+    --gallery-soft-bg: #e7d6ff; /* Soft pastel lavender */
+    --gallery-dark-text: #4a4a4a;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #fce7f0, #e7d6ff, #f7e9ef);
+    background-attachment: fixed;
+    color: var(--gallery-dark-text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px 50px;
+}
+
+/* ============================================================
+    ⭐ HEADER DESIGN (Split Flexbox + Sticky)
+============================================================ */
+
+.header {
+    width: 100%;
+    padding: 20px 40px;
+    background: linear-gradient(90deg, #f7d7f7, #d8c7ff, #f7e6ff);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligned left after removing home button */
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 4px 20px rgba(180, 150, 230, 0.25);
+    position: sticky; 
+    top: 0;
+    z-index: 10;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-left img {
+    width: 40px;
+    height: 40px;
+}
+
+.header-left h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #8b66c7;
+    margin: 0;
+}
+
+/* Subtitle section under header */
+.header-sub {
+    text-align: center;
+    padding: 60px 20px 20px;
+}
+
+.header-sub h2 {
+    font-size: 2.2rem;
+    color: #b28be0;
+    font-weight: 700;
+}
+
+.header-sub p {
+    max-width: 700px;
+    margin: 10px auto 0;
+    color: #7d668f;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* ============================================================
+    ⭐ INTRO SECTION (New Dreamy Background Style)
+    We removed the old .intro-box styles as this replaces them.
+============================================================ */
+.intro-section {
+    background:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.9)),
+        url("../images/gallery-bg.jpg"); /* <-- Ensure this image exists! */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 80px 40px;
+    border-radius: 20px;
+    max-width: 1100px;
+    margin: 40px auto;
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    backdrop-filter: blur(3px);
+}
+
+.intro-section h2 {
+    font-size: 2.4rem;
+    color: #9b72cf; 
+    margin-bottom: 15px;
+}
+
+.intro-section p {
+    font-size: 1.15rem;
+    color: #5f4b8b;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* ===== PHOTO GRID (MASONRY LAYOUT - Gapless) ===== */
+.photo-grid {
+    column-count: 3;
+    column-gap: 15px;
+}
+
+/* Base Gallery Item Styling */
+.gallery-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px; 
+    
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px; 
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect: Lift and Shadow */
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(124, 95, 167, 0.35); 
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Image Zoom on Hover */
+.gallery-item:hover .gallery-img {
+    transform: scale(1.03); 
+}
+
+/* Hover Overlay (for text) */
+.gallery-hover {
+    position: absolute;
+    inset: 0;
+    background: rgba(90, 60, 140, 0.55); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    border-radius: 16px;
+}
+
+/* Show the overlay when hovering the card */
+.gallery-item:hover .gallery-hover {
+    opacity: 1;
+}
+
+.gallery-hover h3 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.35);
+}
+
+/* ===== FOOTER BUTTON ===== */
+.footer-link {
+    text-align: center;
+    padding: 30px;
+    background: var(--gallery-soft-bg);
+}
+
+.footer-link a {
+    display: inline-block;
+    padding: 10px 25px;
+    background: var(--gallery-accent);
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.footer-link a:hover {
+    background: #6a4a90;
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+    ⭐ LIGHTBOX/MODAL STYLES (Kept consistent)
+============================================================ */
+
+.lightbox {
+    display: none; 
+    position: fixed; 
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(124, 95, 167, 0.6);
+    animation: zoomIn 0.3s;
+}
+
+#lightboxImage {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 80vh; 
+    border-radius: 8px;
+}
+
+.caption-text {
+    color: var(--gallery-dark-text);
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--gallery-accent);
+    text-decoration: none;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .photo-grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+    .photo-grid { column-count: 1; }
+    .header {
+        padding: 15px 20px; 
+    }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery • Farah</title>
+    <link rel="stylesheet" href="css/gallery.css"> 
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-left">
+            <img src="images/gallery-icon.png" alt="Gallery Icon">
+            <h1>Life Gallery</h1>
+        </div>
+
+        </header>
+
+    <div class="header-sub">
+            <h2>Capturing the Moments</h2>
+            <p> This gallery is a snapshot of my favorite things—from aesthetic views and memorable trips to simple, beautiful everyday moments
+    </div>
+
+    <main class="container">
+
+
+
+
+        <section class="photo-grid">
+            
+            <div class="gallery-item" onclick="openLightbox('images/bg1.jpg', 'Trip Memory')">
+                <img src="images/bg1.jpg" alt="A photo from a recent trip or outing." class="gallery-img">
+                <div class="gallery-hover"><h3>Trip Memory</h3></div>
+            </div>
+            
+            <div class="gallery-item" onclick="openLightbox('images/bg2.jpg', 'Pastel Vibes')">
+                <img src="images/bg2.jpg" alt="A soft pink or pastel aesthetic shot." class="gallery-img">
+                <div class="gallery-hover"><h3>Pastel Vibes</h3></div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/gallery_food.jpg', 'Cafe Hopping')">
+                <img src="images/gallery_food.jpg" alt="A photo of a favorite cafe or food item." class="gallery-img">
+                <div class="gallery-hover"><h3>Cafe Hopping</h3></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('images/gallery_selfie1.jpg', 'Self-Portrait')">
+                <img src="images/gallery_selfie1.jpg" alt="A self-portrait or mirror selfie." class="gallery-img">
+                <div class="gallery-hover"><h3>Self-Portrait</h3></div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/gallery_study.jpg', 'Study Setup')">
+                <img src="images/gallery_study.jpg" alt="A photo showing a study setup or books." class="gallery-img">
+                <div class="gallery-hover"><h3>Study Setup</h3></div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/gallery_nature.jpg', 'Sunset View')">
+                <img src="images/gallery_nature.jpg" alt="A photo of a sunset or nature view." class="gallery-img">
+                <div class="gallery-hover"><h3>Sunset View</h3></div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/gallery_kpop.jpg', 'K-pop Love')">
+                <img src="images/gallery_kpop.jpg" alt="A photo related to K-pop merch or concert." class="gallery-img">
+                <div class="gallery-hover"><h3>K-pop Love</h3></div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/gallery_friends.jpg', 'Friends & Fun')">
+                <img src="images/gallery_friends.jpg" alt="A photo with friends or family." class="gallery-img">
+                <div class="gallery-hover"><h3>Friends & Fun</h3></div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('images/gallery_project.jpg', 'My Designs')">
+                <img src="images/gallery_project.jpg" alt="A photo of a digital design or project." class="gallery-img">
+                <div class="gallery-hover"><h3>My Designs</h3></div>
+            </div>
+            
+        </section>
+
+    </main>
+
+    <footer class="footer-link">
+        <a href="index.html">⬅️ Back to Home</a>
+    </footer>
+
+    <div id="imageLightbox" class="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+            <div id="lightboxCaption" class="caption-text"></div>
+        </div>
+    </div>
+
+    <script>
+        // JS functions remain the same
+        function openLightbox(imageSrc, captionText) {
+            document.getElementById('lightboxImage').src = imageSrc;
+            document.getElementById('lightboxCaption').textContent = captionText;
+            document.getElementById('imageLightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('imageLightbox').style.display = 'none';
+        }
+
+        document.getElementById('imageLightbox').addEventListener('click', function(event) {
+            if (event.target.id === 'imageLightbox' || event.target.className === 'close-btn') {
+                closeLightbox();
+            }
+        });
+    </script>
+
+</body>
+</html>

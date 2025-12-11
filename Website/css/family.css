@@ -1,0 +1,238 @@
+/* ===== GLOBAL STYLES (Match Index Theme) ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base fade-in animation for the whole page */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #fce7f0, #e7d6ff, #f7e9ef); 
+    background-attachment: fixed;
+    color: #4a4a4a;
+    line-height: 1.6;
+    opacity: 0; /* Start hidden */
+    animation: pageLoadFadeIn 0.5s ease-out forwards; /* Apply animation */
+}
+
+@keyframes pageLoadFadeIn {
+    to { opacity: 1; }
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== HEADER / HERO SECTION (Slide-in) ===== */
+.hero {
+    text-align: center;
+    padding: 60px 20px 30px;
+    background: #ffc8dd; 
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Initial position for slide-in */
+    transform: translateY(-20px); 
+    opacity: 0;
+    animation: slideInFromTop 0.6s ease-out 0.2s forwards; /* Delay and run */
+}
+
+@keyframes slideInFromTop {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tagline {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.home-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background: #fff;
+    color: #ff62a3;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease; /* Transition for hover effects */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.home-btn:hover {
+    background: #fff2f7;
+    transform: translateY(-3px) scale(1.02); /* Lift and grow on hover */
+    box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+}
+
+/* ===== WELCOME BOX (Bounce/Glow) ===== */
+.welcome-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    margin: 40px auto;
+    border: 2px solid #ffb3d5;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.welcome-box:hover {
+    /* Subtle pink glow on hover */
+    box-shadow: 0 8px 30px rgba(255, 120, 150, 0.4); 
+}
+
+.welcome-box h2 {
+    color: #ff62a3;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* ===== FAMILY ACCORDION STYLES (The Core Design) ===== */
+.family-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.member-details {
+    background: #fff;
+    border: 1px solid #ffe6f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Add transition for when the accordion opens/closes */
+    transition: all 0.3s ease; 
+}
+
+.member-details:hover {
+    box-shadow: 0 8px 20px rgba(255, 120, 150, 0.2);
+    transform: translateY(-2px); /* Subtle lift */
+}
+
+/* Style the clickable summary area */
+.member-summary {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    background: #fff8fd; 
+    transition: background 0.2s ease;
+    user-select: none;
+}
+
+.member-summary:hover {
+    background: #ffecf5; 
+}
+
+.profile-thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid #ffb3d5;
+    /* Image shrink/grow on hover */
+    transition: transform 0.3s ease, border-color 0.3s ease; 
+}
+
+.member-details:hover .profile-thumb {
+    transform: scale(1.05); 
+    border-color: #ff62a3;
+}
+
+.summary-text h3 {
+    margin: 0;
+    color: #ff62a3;
+    font-size: 1.2rem;
+}
+
+.role {
+    font-size: 0.9rem;
+    color: #8c5f75;
+}
+
+/* Toggle Icon */
+.toggle-icon {
+    margin-left: auto;
+    font-size: 1.5rem;
+    color: #ff62a3;
+    transition: transform 0.2s ease;
+    font-weight: 600;
+}
+
+/* Rotate icon when the details element is open */
+.member-details[open] .toggle-icon {
+    transform: rotate(45deg);
+}
+
+/* Detailed Bio Content (Slide-up effect when opened) */
+.member-bio {
+    padding: 15px 20px 20px 20px;
+    border-top: 1px solid #ffe6f0;
+    background: #fff;
+    color: #6d5a73;
+    /* We use JS/HTML details for opening, but use CSS to style the content */
+    /* This keyframe makes the text fade in beautifully as the section expands */
+    animation: contentFadeIn 0.4s ease-out; 
+}
+
+@keyframes contentFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.member-bio p {
+    margin-bottom: 8px;
+}
+
+.fact {
+    margin-top: 15px;
+    padding: 8px 12px;
+    background: #fff0f7;
+    border-left: 4px solid #ffb3d5;
+    border-radius: 4px;
+    font-style: italic;
+    font-size: 0.95rem;
+    /* Small bounce/pulse effect on hover */
+    transition: transform 0.2s ease;
+}
+
+.fact:hover {
+    transform: translateX(5px);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background: #fce7f0;
+    color: #8c5f75;
+    font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .member-summary {
+        padding: 10px 15px;
+    }
+    .profile-thumb {
+        width: 50px;
+        height: 50px;
+    }
+    .member-details {
+        font-size: 0.9rem;
+    }
+}
