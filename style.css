@@ -30,7 +30,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url('../images/cherry.gif') center/cover no-repeat;
+  background: url('../cherry.gif') center/cover no-repeat;
 }
 
 .intro-overlay {
@@ -309,3 +309,4 @@ footer {
   .profile-img { width:120px; height:120px; }
   .profile-block { padding:16px; }
 }
+
