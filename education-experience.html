@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education & Experience • Farah</title>
+  <link rel="stylesheet" href="education-experience.css">
+</head>
+
+<body>
+
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <header class="header">
+    <h1>📘 My Education & Experience</h1>
+    <p class="subtitle">A timeline of my learning journey & growth ✨</p>
+  </header>
+
+  <div class="section-switch">
+    <a href="#edu" class="switch-btn">🎓 Education</a>
+    <a href="#exp" class="switch-btn">💼 Experience</a>
+  </div>
+
+  <main class="container">
+
+    <section id="edu" class="section-block">
+      <h2 class="section-title">🎓 Education</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">2022 – Present</div>
+          <div class="timeline-content">
+            <h3>📘 Diploma in Information Management</h3>
+            <h4>Universiti Teknologi MARA (UiTM)</h4>
+            <p class="desc"><strong>Major:</strong> Information Management</p>
+            <p class="desc"><strong>Key Subjects:</strong> Information Systems, Records Management, Digital Publishing, Communication Skills</p>
+            <p class="desc"><strong>Skills Acquired:</strong> Data management, research techniques, communication strategies, teamwork, project management.</p>
+            <p class="desc"><strong>Current Projects:</strong> Individual personal website, group website, group video, research on annual report for archive subjects, project leader for outreach programme.</p>
+            <p class="desc"><strong>Extracurriculars:</strong> Participated in student and college seminars and workshops.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2020 – 2022</div>
+          <div class="timeline-content">
+            <h3>🏫 Secondary School</h3>
+            <h4>SMK Kota Kemuning</h4>
+            <p class="desc"><strong>Prefect:</strong> Led and guided fellow students while maintaining discipline within the school. Took on significant leadership responsibilities, ensuring that the school's code of conduct was followed.</p>
+            <p class="desc"><strong>Leadership Development:</strong> Actively involved in leadership programs, where I developed skills in team management, conflict resolution, and public speaking.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2018 – 2019</div>
+          <div class="timeline-content">
+            <h3>🏫 Secondary School</h3>
+            <h4>SM Sains Banting</h4>
+            <p class="desc"><strong>Pembimbing Rakan Sebaya (Peer Guidance Member):</strong> Actively participated in the Peer Guidance Program, assisting new students in their transition to school, offering support and guidance in academic and personal matters, and promoting a positive school environment.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="exp" class="section-block">
+      <h2 class="section-title">💼 Experience</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">Jul 2025 – Sep 2025</div>
+          <div class="timeline-content">
+            <h3>🗂️ Internship (Record Center)</h3>
+            <h4>The Jay Events & Media</h4>
+            <p class="desc"><strong>Responsibilities:</strong></p>
+            <ul>
+              <li>Assisted in organizing and managing physical and digital records in the archive.</li>
+              <li>Implemented a more efficient filing system to reduce time spent retrieving files.</li>
+              <li>Assisted in training staff on new digital tools for records management.</li>
+              <li>Analyzed and suggested improvements to the company's document management system.</li>
+            </ul>
+            <p class="desc"><strong>Achievements:</strong> Received positive feedback from managers for my attention to detail and efficiency.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">March 2023 – June 2023</div>
+          <div class="timeline-content">
+            <h3>🛍️ Work</h3>
+            <h4>7 Eleven</h4>
+            <p class="desc"><strong>Responsibilities:</strong></p>
+            <ul>
+              <li>Handled customer transactions and managed daily store operations.</li>
+              <li>Ensured product inventory was stocked and well-maintained.</li>
+              <li>Provided excellent customer service, maintaining a clean and welcoming environment.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div class="home-wrapper">
+    <a href="index.html" class="home-btn">🏠 Back to Home</a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-name">
+        © 2025 Nur Farah Natasha Binti Mohd Izaidin • IMD318
+      </p>
+
+      <p class="footer-email">
+        Email: <span>2023830472@student.uitm.edu.my</span>
+      </p>
+
+      <div class="footer-socials">
+        <a href="https://www.tiktok.com/@acanthemika" target="_blank">
+          <img src="tiktok.jpg" alt="TikTok">
+        </a>
+        <a href="https://www.instagram.com/frtasya" target="_blank">
+          <img src="ig.jpg" alt="Instagram">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top <= window.innerHeight && rect.bottom >= 0;
+      }
+
+      function checkVisibility() {
+        timelineItems.forEach(item => {
+          if (isInViewport(item)) {
+            item.classList.add('visible');
+          }
+        });
+      }
+
+      checkVisibility();
+      window.addEventListener('scroll', checkVisibility);
+    });
+  </script>
+
+</body>
+</html>
